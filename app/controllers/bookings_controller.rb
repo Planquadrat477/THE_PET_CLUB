@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
   end
 
   def new
@@ -14,7 +15,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @pet = Pet.find(params[:pet_id])
-    @booking.user = User.last
+    @booking.user = current_user
     @booking.pet = @pet
 
     if @booking.save!
