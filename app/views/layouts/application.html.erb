@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
     <%= yield %>
 
     <p class="notice"><%= notice %></p>
@@ -29,6 +30,6 @@
         ©The Barter Club all right reserved <i class="fas fa-paw"></i>
       </div>
     </div>
-
+    <%= render 'shared/flashes' %>
   </body>
 </html>
