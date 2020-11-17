@@ -1,2 +1,18 @@
-<h1>Pets#show</h1>
-<p>Find me in app/views/pets/show.html.erb</p>
+<div class="container">
+  <h1><%= @@pet.name %></h1>
+  <br>
+
+  <h3 class="ingredients">Ingredients</h3>
+  <ul>
+    <% @cocktail.doses.each do |dose|  %>
+    <li><%= dose.ingredient.name %> - <%= dose.description %>
+      (<%= link_to 'delete', dose_path(dose), method: :delete, data: { confirm: "sure?"} %>)</li>
+    <% end %>
+  </ul>
+  <br>
+  <br>
+  <%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
+  <br>
+  <br>
+  <%= link_to 'Back to the list', root_path, class: 'btn btn-primary' %>
+</div>
